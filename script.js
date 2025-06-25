@@ -3,16 +3,15 @@ fetch("livros.json")
   .then(data => {
     const container = document.getElementById("livros-container");
     const input = document.getElementById("busca");
-    const filtro = document.getElementById("filtro-status");
+    const filtroStatus = document.getElementById("filtro-status");
+    const filtroSerie = document.getElementById("filtro-serie");
 
-    // Criar e posicionar o contador
     const contador = document.createElement("div");
     contador.id = "contador";
     contador.style.fontWeight = "bold";
     contador.style.marginBottom = "1rem";
     container.before(contador);
 
-    // Atualizar contador
     function atualizarContador(lista) {
       const total = lista.length;
       const disponiveis = lista.filter(l => l.status === "disponivel").length;
@@ -20,7 +19,6 @@ fetch("livros.json")
       contador.innerText = `📚 Total: ${total} livros | ✅ ${disponiveis} disponíveis | ❌ ${emprestados} emprestados`;
     }
 
-    // Renderizar lista
     function render(lista) {
       container.innerHTML = "";
       atualizarContador(lista);
@@ -36,19 +34,24 @@ fetch("livros.json")
       });
     }
 
-    // Filtro ativo
     function filtrar() {
       const termo = input.value.toLowerCase();
-      const statusSelecionado = filtro.value;
+      const statusSelecionado = filtroStatus.value;
+      const serieSelecionada = filtroSerie.value;
+
       const resultado = data.filter(l => {
         const matchTitulo = l.titulo.toLowerCase().includes(termo);
         const matchStatus = statusSelecionado === "todos" || l.status === statusSelecionado;
-        return matchTitulo && matchStatus;
+        const matchSerie = serieSelecionada === "todas" || (l.serie && l.serie === serieSelecionada);
+        return matchTitulo && matchStatus && matchSerie;
       });
+
       render(resultado);
     }
 
     input.addEventListener("input", filtrar);
-    filtro.addEventListener("change", filtrar);
+    filtroStatus.addEventListener("change", filtrar);
+    filtroSerie.addEventListener("change", filtrar);
+
     render(data);
   });
