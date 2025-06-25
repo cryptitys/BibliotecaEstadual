@@ -1,23 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca - Escola Adolpho Thomaz de Aquino</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biblioteca - Escola Adolpho Thomaz de Aquino</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>📚 Biblioteca - Escola Adolpho Thomaz de Aquino</h1>
-    </header>
-    <main>
-        <input type="text" id="busca" placeholder="Buscar livro por nome...">
-        <div id="livros-container"></div>
-    </main>
-    <footer>
-        <p>Visualização pública - apenas funcionários podem editar no GitHub</p>
-    </footer>
-    <script src="script.js"></script>
+  <header>
+    <h1>📚 Biblioteca - Escola Adolpho Thomaz de Aquino</h1>
+  </header>
+  <main>
+    <input type="text" id="busca" placeholder="Buscar livro por nome..." />
+    <select id="filtro-status">
+      <option value="todos">Todos</option>
+      <option value="disponivel">Disponível</option>
+      <option value="emprestado">Emprestado</option>
+    </select>
+    <div id="livros-container"></div>
+  </main>
+  <footer>
+    <p>Visualização pública – edição apenas no GitHub</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
