@@ -17,5 +17,250 @@
     "aluno": "João Pedro de Lima",
     "serie": "3º B",
     "data": "22/06/2025"
+  },
+  {
+    "titulo": "Harry Potter Vol. 3",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Dom Quixote Vol. 2",
+    "status": "emprestado",
+    "aluno": "Vitória Souza",
+    "serie": "3º A",
+    "data": "17/05/2025"
+  },
+  {
+    "titulo": "Percy Jackson Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "O Hobbit Vol. 5",
+    "status": "emprestado",
+    "aluno": "Lucas Gabriel",
+    "serie": "1º B",
+    "data": "08/05/2025"
+  },
+  {
+    "titulo": "O Guarani Vol. 1",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "O Pequeno Príncipe Vol. 2",
+    "status": "emprestado",
+    "aluno": "Ana Clara",
+    "serie": "2º A",
+    "data": "14/06/2025"
+  },
+  {
+    "titulo": "Maze Runner Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Cidade dos Ossos Vol. 1",
+    "status": "emprestado",
+    "aluno": "Davi Lima",
+    "serie": "1º A",
+    "data": "11/06/2025"
+  },
+  {
+    "titulo": "Capitães da Areia Vol. 3",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "O Cortiço Vol. 2",
+    "status": "emprestado",
+    "aluno": "Maria Eduarda",
+    "serie": "2º B",
+    "data": "09/06/2025"
+  },
+  {
+    "titulo": "Diário de um Banana Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Crepúsculo Vol. 1",
+    "status": "emprestado",
+    "aluno": "Beatriz Rocha",
+    "serie": "1º B",
+    "data": "13/06/2025"
+  },
+  {
+    "titulo": "Jogos Vorazes Vol. 2",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Memórias Póstumas de Brás Cubas Vol. 2",
+    "status": "emprestado",
+    "aluno": "João Pedro",
+    "serie": "2º B",
+    "data": "20/05/2025"
+  },
+  {
+    "titulo": "1984 Vol. 1",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Harry Potter Vol. 3",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Dom Quixote Vol. 2",
+    "status": "emprestado",
+    "aluno": "Vitória Souza",
+    "serie": "3º A",
+    "data": "17/05/2025"
+  },
+  {
+    "titulo": "Percy Jackson Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "O Hobbit Vol. 5",
+    "status": "emprestado",
+    "aluno": "Lucas Gabriel",
+    "serie": "1º B",
+    "data": "08/05/2025"
+  },
+  {
+    "titulo": "O Guarani Vol. 1",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "O Pequeno Príncipe Vol. 2",
+    "status": "emprestado",
+    "aluno": "Ana Clara",
+    "serie": "2º A",
+    "data": "14/06/2025"
+  },
+  {
+    "titulo": "Maze Runner Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Cidade dos Ossos Vol. 1",
+    "status": "emprestado",
+    "aluno": "Davi Lima",
+    "serie": "1º A",
+    "data": "11/06/2025"
+  },
+  {
+    "titulo": "Capitães da Areia Vol. 3",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "O Cortiço Vol. 2",
+    "status": "emprestado",
+    "aluno": "Maria Eduarda",
+    "serie": "2º B",
+    "data": "09/06/2025"
+  },
+  {
+    "titulo": "Diário de um Banana Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Crepúsculo Vol. 1",
+    "status": "emprestado",
+    "aluno": "Beatriz Rocha",
+    "serie": "1º B",
+    "data": "13/06/2025"
+  },
+  {
+    "titulo": "Jogos Vorazes Vol. 2",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Memórias Póstumas de Brás Cubas Vol. 2",
+    "status": "emprestado",
+    "aluno": "João Pedro",
+    "serie": "2º B",
+    "data": "20/05/2025"
+  },
+  {
+    "titulo": "1984 Vol. 1",
+    "status": "disponivel"
   }
+  ,
+  {
+    "titulo": "O Senhor dos Anéis Vol. 2",
+    "status": "emprestado",
+    "aluno": "João Pedro",
+    "serie": "3º B",
+    "data": "15/05/2025"
+  },
+  {
+    "titulo": "Romeu e Julieta Vol. 3",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "A Moreninha Vol. 1",
+    "status": "emprestado",
+    "aluno": "Maria Eduarda",
+    "serie": "2º A",
+    "data": "12/06/2025"
+  },
+  {
+    "titulo": "Vidas Secas Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Como Treinar seu Dragão Vol. 2",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "A Ilha Perdida Vol. 5",
+    "status": "emprestado",
+    "aluno": "Ana Clara",
+    "serie": "1º B",
+    "data": "17/05/2025"
+  },
+  {
+    "titulo": "O Ladrão de Raios Vol. 3",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "A Revolução dos Bichos Vol. 1",
+    "status": "emprestado",
+    "aluno": "Vitória Souza",
+    "serie": "3º A",
+    "data": "10/05/2025"
+  },
+  {
+    "titulo": "Cinquenta Tons de Cinza Vol. 1",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Senhora Vol. 2",
+    "status": "emprestado",
+    "aluno": "Beatriz Rocha",
+    "serie": "3º B",
+    "data": "16/06/2025"
+  },
+  {
+    "titulo": "O Menino do Pijama Listrado Vol. 1",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Sagarana Vol. 2",
+    "status": "emprestado",
+    "aluno": "Lucas Gabriel",
+    "serie": "1º A",
+    "data": "09/06/2025"
+  },
+  {
+    "titulo": "Divergente Vol. 4",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Iracema Vol. 3",
+    "status": "emprestado",
+    "aluno": "João Pedro",
+    "serie": "3º B",
+    "data": "06/06/2025"
+  },
+  {
+    "titulo": "A Culpa é das Estrelas Vol. 1",
+    "status": "disponivel"
+  }
+
 ]
