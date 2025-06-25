@@ -5,8 +5,25 @@ fetch("livros.json")
     const input = document.getElementById("busca");
     const filtro = document.getElementById("filtro-status");
 
+    // Criar e posicionar o contador
+    const contador = document.createElement("div");
+    contador.id = "contador";
+    contador.style.fontWeight = "bold";
+    contador.style.marginBottom = "1rem";
+    container.before(contador);
+
+    // Atualizar contador
+    function atualizarContador(lista) {
+      const total = lista.length;
+      const disponiveis = lista.filter(l => l.status === "disponivel").length;
+      const emprestados = lista.filter(l => l.status === "emprestado").length;
+      contador.innerText = `📚 Total: ${total} livros | ✅ ${disponiveis} disponíveis | ❌ ${emprestados} emprestados`;
+    }
+
+    // Renderizar lista
     function render(lista) {
       container.innerHTML = "";
+      atualizarContador(lista);
       lista.forEach(livro => {
         const card = document.createElement("div");
         card.className = "card";
@@ -19,6 +36,7 @@ fetch("livros.json")
       });
     }
 
+    // Filtro ativo
     function filtrar() {
       const termo = input.value.toLowerCase();
       const statusSelecionado = filtro.value;
