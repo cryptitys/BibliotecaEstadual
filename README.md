@@ -5,5 +5,11 @@
   
 </div>
 
+## 🌟 Sobre o Projeto
+é uma iniciativa 100% voluntária criada para:
+- ✨ Facilitar o acesso a informações relevantes
+- 🌱 Promover a participação estudantil
+- 💡 Ser uma ferramenta educativa inovadora
 
+Desenvolvido com dedicação , projeto web dedicado à comunidade escolar!
 
