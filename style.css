@@ -1,0 +1,51 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+header, footer {
+    background-color: #005792;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+main {
+    padding: 1rem;
+    max-width: 900px;
+    margin: auto;
+}
+#busca {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+#livros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+.card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+.card p {
+    margin: 0.3rem 0;
+}
+.disponivel {
+    color: green;
+}
+.emprestado {
+    color: red;
+}
