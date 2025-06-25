@@ -1,4 +1,5 @@
-# 🏛️ BIBLIOTECA ESTADUAL DIGITAL
+# 🏛️ BIBLIOTECA ESTADUAL DIGITAL ; 
+     ADOLPHO THOMAZ DE AQUINO
 
 <div align="center">
   <img src="https://via.placeholder.com/1200x400/1A237E/FFFFFF?text=BIBLIOTECA+ESTADUAL+DIGITAL" width="85%">
@@ -8,7 +9,7 @@
 </div>
 
 ## 📌 MISSÃO
-> "Democratizar o acesso à leitura com tecnologia moderna e serviço eficiente"
+> "Democratizar o acesso à leitura com tecnologia moderna e serviço de emprestimos"
 
 ## ✨ FUNCIONALIDADES PRINCIPAIS
 
@@ -16,8 +17,5 @@
 ```mermaid
 pie
     title Acervo por Nível Educacional
-    "Educação Infantil" : 18
-    "Fundamental I" : 42
-    "Fundamental II" : 76
-    "Ensino Médio" : 64
-    "Adultos" : 33
+ "Ensino Médio" : 100
+
