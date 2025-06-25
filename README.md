@@ -10,6 +10,7 @@
 - ✨ Facilitar o acesso a informações relevantes
 - 🌱 Promover a participação estudantil
 - 💡 Ser uma ferramenta educativa inovadora
-
+#ACESSE O SITE:
+(https://bibliotecaestadual.netlify.app/)
 Desenvolvido com dedicação , projeto web dedicado à comunidade escolar!
 
