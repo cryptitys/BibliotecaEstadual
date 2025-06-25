@@ -20,11 +20,3 @@
   }
 ]
 
-[
-  {
-    "titulo": "Mafalda",
-    "status": "emprestado",
-    "aluno": "Dafne da Silva Oliveira",
-    "serie": "2º A",
-    "data": "10/05/2025"
-  },
