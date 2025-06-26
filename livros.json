@@ -1,48 +1,55 @@
 
 [
   {
-    "titulo": "Mafalda",
-    "status": "emprestado",
-    "aluno": "Dafne da Silva Oliveira",
-    "serie": "2º A",
-    "data": "10/05/2025"
+    "titulo": "convergente",
+    "status": "disponivel",
+    "aluno": "nenhum",
+    "serie": "0º 0",
+    "data": "00/00/2025"
+    "modo" : "coleçao",
   },
   {
     "titulo": "O Pequeno Príncipe",
     "status": "disponivel"
+     "aluno": "nenhum",
+    "serie": "0º 0",
+     "modo" : "coleçao"
   },
   {
     "titulo": "Harry Potter e a Pedra Filosofal",
-    "status": "emprestado",
-    "aluno": "João Pedro de Lima",
-    "serie": "3º B",
-    "data": "22/06/2025"
+    "status": "Disponivel",
+    "aluno": "nenhum",
+    "serie": "0º 0",
+    "data": "00/00/2025"
   },
   {
-    "titulo": "Harry Potter Vol. 3",
+    "titulo": "Harry Potter Vol. _",
     "status": "disponivel"
   },
   {
-    "titulo": "Dom Quixote Vol. 2",
-    "status": "emprestado",
-    "aluno": "Vitória Souza",
-    "serie": "3º A",
-    "data": "17/05/2025"
+    "titulo": "Dom Quixote Vol. _",
+    "status": "Disponivel",
+    "aluno": "nenhum",
+    "serie": "0º 0",
+    "data": "00/00/2025"
   },
   {
-    "titulo": "Percy Jackson Vol. 4",
+    "titulo": "Insurgente",
     "status": "disponivel"
+    "aluno": "nenhum",
+    "serie": "0º 0",
+    "data": "00/00/2025"
   },
   {
-    "titulo": "O Hobbit Vol. 5",
-    "status": "emprestado",
-    "aluno": "Lucas Gabriel",
-    "serie": "1º B",
-    "data": "08/05/2025"
+    "titulo": "Pepetela Mayombe",
+    "status": "Disponivel",
+    "aluno": "nenhum",
+    "serie": "0º 0",
+    "data": "00/00/2025"
   },
   {
-    "titulo": "O Guarani Vol. 1",
-    "status": "disponivel"
+    "titulo": "Vanessa e Luana Vol. 1",
+    "status": "sla"
   },
   {
     "titulo": "O Pequeno Príncipe Vol. 2",
