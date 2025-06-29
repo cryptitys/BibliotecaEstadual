@@ -1,29 +1,60 @@
+import { db } from "./firebase.js";
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
-fetch("livros.json")
-    .then(res => res.json())
-    .then(data => {
-        const container = document.getElementById("livros-container");
-        const input = document.getElementById("busca");
+const container = document.getElementById("livros-container");
+const buscaInput = document.getElementById("busca");
+const filtroStatus = document.getElementById("filtro-status");
+const filtroSerie = document.getElementById("filtro-serie");
+const contadorDiv = document.getElementById("contador");
 
-        function render(lista) {
-            container.innerHTML = "";
-            lista.forEach(livro => {
-                const card = document.createElement("div");
-                card.className = "card";
-                card.innerHTML = `
-                    <h2>${livro.titulo}</h2>
-                    <p>Status: <strong class="${livro.status}">${livro.status === "disponivel" ? "Disponível" : "Emprestado"}</strong></p>
-                    ${livro.status === "emprestado" ? `<p>Aluno: ${livro.aluno} (${livro.serie})</p><p>Data: ${livro.data}</p>` : ""}
-                `;
-                container.appendChild(card);
-            });
-        }
+const carregarLivros = async () => {
+  const livrosCol = collection(db, "livros");
+  const snapshot = await getDocs(livrosCol);
+  const livros = snapshot.docs.map(doc => doc.data());
 
-        render(data);
+  const series = [...new Set(livros.map(l => l.serie).filter(Boolean))];
+  series.forEach(serie => {
+    const option = document.createElement("option");
+    option.value = serie;
+    option.textContent = serie;
+    filtroSerie.appendChild(option);
+  });
 
-        input.addEventListener("input", () => {
-            const termo = input.value.toLowerCase();
-            const filtrado = data.filter(l => l.titulo.toLowerCase().includes(termo));
-            render(filtrado);
-        });
+  const mostrarLivros = () => {
+    const termo = buscaInput.value.toLowerCase();
+    const statusFiltro = filtroStatus.value;
+    const serieFiltro = filtroSerie.value;
+
+    const filtrados = livros.filter(l => {
+      const correspondeBusca = l.titulo.toLowerCase().includes(termo);
+      const correspondeStatus = statusFiltro === "todos" || l.status === statusFiltro;
+      const correspondeSerie = serieFiltro === "todas" || l.serie === serieFiltro;
+      return correspondeBusca && correspondeStatus && correspondeSerie;
     });
+
+    const total = livros.length;
+    const disponiveis = livros.filter(l => l.status === "disponivel").length;
+    const emprestados = livros.filter(l => l.status === "emprestado").length;
+    contadorDiv.innerHTML = `📚 Total: ${total} livros | ✅ ${disponiveis} disponíveis | ❌ ${emprestados} emprestados`;
+
+    container.innerHTML = "";
+    filtrados.forEach(livro => {
+      const div = document.createElement("div");
+      div.className = "livro";
+      div.innerHTML = `
+        <strong>${livro.titulo}</strong><br>
+        Status: <span style="color:${livro.status === 'disponivel' ? 'green' : 'red'}">${livro.status}</span><br>
+        ${livro.status === "emprestado" ? `Aluno: ${livro.aluno} (${livro.serie})<br>Data: ${livro.data}` : ""}
+      `;
+      container.appendChild(div);
+    });
+  };
+
+  buscaInput.addEventListener("input", mostrarLivros);
+  filtroStatus.addEventListener("change", mostrarLivros);
+  filtroSerie.addEventListener("change", mostrarLivros);
+
+  mostrarLivros();
+};
+
+carregarLivros();
