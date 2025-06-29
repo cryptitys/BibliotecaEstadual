@@ -1,35 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biblioteca Escolar</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca - Escola Adolpho Thomaz de Aquino</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <h1>📘 Biblioteca Escolar</h1>
-    <a id="admin-btn" href="login.html" title="Painel de Administração">⚙️</a>
-  </nav>
+  <header>
+    <h1>📚 Biblioteca - Escola Adolpho Thomaz de Aquino</h1>
+  </header>
+
   <main>
-    <section class="filtros">
-      <input type="text" id="busca" placeholder="🔎 Buscar livro...">
-      <select id="filtro-status">
-        <option value="todos">Todos</option>
-        <option value="disponivel">Disponíveis</option>
-        <option value="emprestado">Emprestados</option>
-      </select>
-      <select id="filtro-serie">
-        <option value="todas">Todas as séries</option>
-      </select>
-    </section>
+    <input type="text" id="busca" placeholder="Buscar livro por nome..." />
+    <select id="filtro-status">
+      <option value="todos">Todos</option>
+      <option value="disponivel">Disponível</option>
+      <option value="emprestado">Emprestado</option>
+    </select>
+    <select id="filtro-serie">
+      <option value="todas">Todas as séries</option>
+    </select>
+
     <div id="contador"></div>
-    <section id="livros-container"></section>
+    <div id="livros-container"></div>
   </main>
-  <footer>
-    <p>Somente funcionários autenticados podem editar informações.</p>
-  </footer>
+
   <script type="module" src="firebase.js"></script>
   <script type="module" src="script.js"></script>
 </body>
