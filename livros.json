@@ -1,0 +1,21 @@
+
+[
+  {
+    "titulo": "A Menina que Roubava Livros",
+    "status": "emprestado",
+    "aluno": "Clara Mendes",
+    "serie": "9º A",
+    "data": "15/06/2025"
+  },
+  {
+    "titulo": "O Pequeno Príncipe",
+    "status": "disponivel"
+  },
+  {
+    "titulo": "Dom Casmurro",
+    "status": "emprestado",
+    "aluno": "Rafael Lima",
+    "serie": "3º C",
+    "data": "20/06/2025"
+  }
+]
