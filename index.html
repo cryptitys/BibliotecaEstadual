@@ -3,41 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site</title>
+    <title>Biblioteca Escolar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            background-color: #f4f4f4;
         }
         header {
-            background-color: #333;
+            background-color: #2c3e50;
             color: white;
+            text-align: center;
             padding: 1em;
         }
         nav a {
-            margin: 0 1em;
             color: white;
+            margin: 0 1em;
             text-decoration: none;
         }
-        main {
-            padding: 2em;
+        .container {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .disponivel { color: green; }
+        .emprestado { color: red; }
     </style>
 </head>
 <body>
     <header>
-        <h1>Bem-vindo ao Meu Site</h1>
+        <h1>Biblioteca Escolar</h1>
         <nav>
-            <a href="#home">kskwkwks Heloisa</a>
+            <a href="#home">Home</a>
+            <a href="#acervo">Acervo</a>
             <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
         </nav>
     </header>
-    <main>
-        <h2>Olá!</h2>
-        <p>Este é um exemplo de site simples. Vamos personalizá-lo?</p>
-    </main>
-</body>
-          </html>
+    <div class="container">
+        <h2>Acervo de Livros</h2>
+        <p>Total de livros disponíveis: <span id="totalDisponiveis">0</span></p>
+        <table id="tabelaLivros">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="listaLivros"></tbody>
+        </table>
+    </div>
+
+    <script>
+        // Dados fictícios dos livros (pode ser um JSON externo depois)
+        const livros = [
+            { id: 1, titulo: "Dom Casmurro", autor: "Machado de Assis", status: "Disponível" },
+            { id: 2, titulo: "Harry Potter", autor: "J.K. Rowling", status: "Emprestado" },
+            { id: 3, titulo: "1984", autor: "George Orwell", status: "Disponível" },
+        ];
+
+        // Função para carregar os livros na tabela
+        function carregarLivros() {
+            const listaLivros = document.getElementById("listaLivros");
+            const totalDisponiveis = document.getElementById("totalDisponiveis");
+            let disponiveis = 0;
+
+            listaLivros.innerHTML = ""; // Limpa a tabela
+            livros.forEach(livro => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${livro.titulo}</td>
+                    <td>${livro.autor}</td>
+                    <td class="${livro.status === 'Disponível' ? 'disponivel' : 'emprestado'}">${livro.status}</td>
+                `;
+                listaLivros.appendChild(tr);
+                if (livro.status === "Disponível") disponiveis++;
+            });
+
+            totalDisponiveis.text
