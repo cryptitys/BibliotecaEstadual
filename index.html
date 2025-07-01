@@ -9,113 +9,106 @@
       padding: 0;
       min-height: 300vh;
       overflow-x: hidden;
-      background: #0a0f23;
+      background: radial-gradient(ellipse at bottom, #0a0f23 0%, #000000 100%);
       font-family: 'Arial', sans-serif;
+      -webkit-user-select: none;
       user-select: none;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+    #info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
-    }#info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 2;
-  opacity: 0;
-  animation: slideFadeIn 1.5s ease-out 1s forwards;
-}
-
-@keyframes slideFadeIn {
-  from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
-  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-
-h1, p {
-  text-shadow: 0 0 15px #ffffff55;
-}
-
-#extra-text {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #e0f7fa;
-  text-align: center;
-  font-size: 1.2em;
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  padding: 25px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 15px;
-  width: 85%;
-  max-width: 450px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  z-index: 2;
-}
-
-#extra-text.show {
-  opacity: 1;
-  transform: translate(-50%, -20px);
-}
-
-#countdown {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 1.1em;
-  box-shadow: 0 0 10px #00ffcc55;
-  z-index: 10;
-}
-
-canvas {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
+      text-align: center;
+      z-index: 2;
+      opacity: 0;
+      animation: slideFadeIn 1.5s ease-out 1s forwards;
+    }
+    @keyframes slideFadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 0 0 15px #ffffff55, 0 0 30px #ffffff33;
+      font-weight: bold;
+    }
+    p {
+      font-size: 1.5em;
+      margin-top: 15px;
+      text-shadow: 0 0 10px #ffffff33, 0 0 20px #ffffff22;
+    }
+    #extra-text {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #e0f7fa;
+      text-align: center;
+      font-size: 1.2em;
+      opacity: 0;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      width: 85%;
+      max-width: 450px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      z-index: 2;
+    }
+    #extra-text.show {
+      opacity: 1;
+      transform: translate(-50%, -20px);
+    }
   </style>
 </head>
 <body>
   <div id="info">
     <h1>Projeto encerrado temporariamente</h1>
     <p>Em breve outro será lançado...</p>
-  </div>  <div id="extra-text">
+  </div>
+  <div id="extra-text">
     Este projeto foi encerrado temporariamente por motivos pessoais, falta de tempo livre e por estar sendo desenvolvido sozinho. Agradeço a todos que acompanharam!
-  </div>  <div id="countdown"></div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>  <script>
-    // Fundo 3D e efeitos visuais
+  </div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>  <script>
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
     document.body.appendChild(renderer.domElement);
 
     const starsGeometry = new THREE.BufferGeometry();
-    const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.15, transparent: true, opacity: 0.7 });
     const starVertices = [];
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 1200; i++) {
       const x = (Math.random() - 0.5) * 1000;
       const y = (Math.random() - 0.5) * 1000;
       const z = (Math.random() - 0.5) * 1000;
       starVertices.push(x, y, z);
     }
     starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-    const stars = new THREE.Points(starsGeometry, starsMaterial);
-    scene.add(stars);
+    const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.7, opacity: 0.7, transparent: true });
+    const starField = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(starField);
 
-    camera.position.z = 5;
+    camera.position.z = 300;
     function animate() {
       requestAnimationFrame(animate);
-      stars.rotation.y += 0.0005;
+      starField.rotation.y += 0.0005;
+      starField.rotation.x += 0.0002;
       renderer.render(scene, camera);
     }
     animate();
 
-    // Extra text on scroll
     const extraText = document.getElementById('extra-text');
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY;
@@ -125,29 +118,5 @@ canvas {
         extraText.classList.remove('show');
       }
     });
-
-    // Cronômetro fixo (30 dias a partir de 2025-06-30T00:00:00Z)
-    const countdown = document.getElementById('countdown');
-    const endDate = new Date("2025-07-30T00:00:00Z").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = endDate - now;
-
-      if (distance < 0) {
-        countdown.innerHTML = "Novo projeto disponível em breve.";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `Retorno em: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
   </script></body>
 </html>
