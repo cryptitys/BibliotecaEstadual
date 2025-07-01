@@ -1,0 +1,19 @@
+/* Estilos adicionais que complementam o Tailwind */
+.disponivel {
+    color: green;
+    font-weight: bold;
+}
+.emprestado {
+    color: red;
+    font-weight: bold;
+}
+table th, table td {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+    text-align: left;
+}
+@media (max-width: 640px) {
+    table th, table td {
+        font-size: 0.9rem;
+    }
+}
