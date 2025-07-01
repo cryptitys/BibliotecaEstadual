@@ -3,109 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Encerrado</title>
+    <title>Projeto Encerrado Temporariamente</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
             overflow: hidden;
-            background: linear-gradient(135deg, #1a263a, #2a5298);
+            background: #1a263a;
             font-family: 'Arial', sans-serif;
+            height: 200vh; /* Aumenta a altura para permitir scroll */
         }
-        .container {
+        #info {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
             color: white;
+            text-align: center;
+            z-index: 1;
             opacity: 0;
-            animation: slideIn 1.5s ease-out forwards 1s;
+            animation: fadeIn 2s ease-out 2s forwards;
         }
-        @keyframes slideIn {
-            0% { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
-        .text {
+        h1 {
             font-size: 2.5em;
             margin: 0;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid white;
-            animation: typing 3s steps(20) 1.5s forwards, blink 0.75s step-end infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-        .subtext {
+        p {
             font-size: 1.2em;
             margin-top: 10px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        #extra-text {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #00ff00;
+            text-align: center;
+            font-size: 1.1em;
             opacity: 0;
-            animation: fadeUp 2s ease-out 4.5s forwards;
+            transition: opacity 0.5s ease;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            z-index: 2;
         }
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        #extra-text.show {
+            opacity: 1;
         }
-        .star {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: float 5s infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); opacity: 0.6; }
-            50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
-            100% { transform: translateY(0) scale(1); opacity: 0.6; }
-        }
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: particleMove 3s infinite linear;
-        }
-        @keyframes particleMove {
-            0% { transform: translate(0, 0) scale(0); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translate(100vw, 100vh) scale(1); opacity: 0; }
+        canvas {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text">Projeto Encerrado</h1>
-        <p class="subtext">Em breve outro será lançado...</p>
+    <div id="info">
+        <h1>Projeto encerrado temporariamente</h1>
+        <p>Em breve outro será lançado...</p>
+    </div>
+    <div id="extra-text">
+        Este projeto foi encerrado temporariamente por motivos pessoais, falta de tempo livre e por estar sendo desenvolvido sozinho. Agradeço a todos que acompanharam!
     </div>
 
-    <!-- Estrelas flutuantes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script>
-        for (let i = 0; i < 30; i++) {
-            let star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = Math.random() * 3 + 1 + 'px';
-            star.style.height = star.style.width;
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.animationDelay = Math.random() * 5 + 's';
-            document.body.appendChild(star);
+        // Configuração da cena 3D
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Estrelas 3D
+        const starsGeometry = new THREE.BufferGeometry();
+        const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1 });
+        const starVertices = [];
+        for (let i = 0; i < 1000; i++) {
+            const x = (Math.random() - 0.5) * 1000;
+            const y = (Math.random() - 0.5) * 1000;
+            const z = (Math.random() - 0.5) * 1000;
+            starVertices.push(x, y, z);
+        }
+        starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+        const stars = new THREE.Points(starsGeometry, starsMaterial);
+        scene.add(stars);
+
+        // Texto 3D
+        const loader = new THREE.FontLoader();
+        loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function(font) {
+            const textGeometry = new THREE.TextGeometry('Projeto encerrado temporariamente', {
+                font: font,
+                size: 3, // Reduzido para caber
+                height: 1,
+                curveSegments: 12,
+            });
+            const textMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+            const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+            textMesh.position.set(-30, 0, -50); // Ajustado para o novo tamanho
+            scene.add(textMesh);
+
+            const subTextGeometry = new THREE.TextGeometry('Em breve outro será lançado...', {
+                font: font,
+                size: 2,
+                height: 0.5,
+                curveSegments: 12,
+            });
+            const subTextMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+            const subTextMesh = new THREE.Mesh(subTextGeometry, subTextMaterial);
+            subTextMesh.position.set(-25, -10, -50);
+            scene.add(subTextMesh);
+        });
+
+        // Configuração da câmera
+        camera.position.z = 50;
+
+        // Interatividade com toque/mouse
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('touchmove', onTouchMove);
+
+        function onMouseMove(event) {
+            mouseX = (event.clientX / window.innerWidth - 0.5) * 100;
+            mouseY = (event.clientY / window.innerHeight - 0.5) * 100;
         }
 
-        // Partículas flutuantes
-        for (let i = 0; i < 20; i++) {
-            let particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.width = Math.random() * 5 + 2 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.top = Math.random() * 100 + 'vh';
-            particle.style.animationDelay = Math.random() * 3 + 's';
-            document.body.appendChild(particle);
+        function onTouchMove(event) {
+            mouseX = (event.touches[0].clientX / window.innerWidth - 0.5) * 100;
+            mouseY = (event.touches[0].clientY / window.innerHeight - 0.5) * 100;
         }
+
+        // Animação e scroll
+        const extraText = document.getElementById('extra-text');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // Aparece após rolar um pouco
+                extraText.classList.add('show');
+            } else {
+                extraText.classList.remove('show');
+            }
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            camera.position.x = mouseX * 0.1;
+            camera.position.y = -mouseY * 0.1;
+            camera.lookAt(0, 0, 0);
+            stars.rotation.y += 0.001;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Ajuste ao redimensionar
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
     </script>
 </body>
 </html>
