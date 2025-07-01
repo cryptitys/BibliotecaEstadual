@@ -1,62 +1,75 @@
-// Array inicial de livros (pode ser substituído por livros.json depois)
-let livros = [
-    { id: 1, titulo: "Dom Casmurro", autor: "Machado de Assis", status: "Disponível" },
-    { id: 2, titulo: "Harry Potter", autor: "J.K. Rowling", status: "Emprestado" },
-    { id: 3, titulo: "1984", autor: "George Orwell", status: "Disponível" },
-];
+// Configuração do Firebase (substitua pelos seus dados)
+const firebaseConfig = {
+    apiKey: "SEU_API_KEY",
+    authDomain: "SEU_AUTH_DOMAIN",
+    projectId: "SEU_PROJECT_ID",
+    storageBucket: "SEU_STORAGE_BUCKET",
+    messagingSenderId: "SEU_MESSAGING_SENDER_ID",
+    appId: "SEU_APP_ID"
+};
 
-// Função para carregar e exibir livros
-function carregarLivros(filtro = "") {
+// Inicializar Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// Variáveis
+let livros = [];
+
+// Carregar livros do Firebase
+function carregarLivros() {
+    db.collection("livros").get().then((querySnapshot) => {
+        livros = [];
+        querySnapshot.forEach((doc) => {
+            livros.push({ id: doc.id, ...doc.data() });
+        });
+        atualizarLista();
+    });
+}
+
+// Atualizar lista de livros
+function atualizarLista() {
+    const pesquisa = document.getElementById("pesquisa").value.toLowerCase();
+    const filtroStatus = document.getElementById("filtroStatus").value;
+    const filtroSerie = document.getElementById("filtroSerie").value;
     const listaLivros = document.getElementById("listaLivros");
-    const totalDisponiveis = document.getElementById("totalDisponiveis");
-    let disponiveis = 0;
+    const totalLivros = document.getElementById("totalLivros");
+    const disponiveis = document.getElementById("disponiveis");
+    const emprestados = document.getElementById("emprestados");
 
-    listaLivros.innerHTML = ""; // Limpa a tabela
-    const livrosFiltrados = livros.filter(livro =>
-        livro.titulo.toLowerCase().includes(filtro.toLowerCase()) ||
-        livro.autor.toLowerCase().includes(filtro.toLowerCase())
-    );
+    listaLivros.innerHTML = "";
+    let dispCount = 0;
+    let empCount = 0;
 
-    livrosFiltrados.forEach(livro => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${livro.titulo}</td>
-            <td>${livro.autor}</td>
-            <td class="${livro.status === 'Disponível' ? 'disponivel' : 'emprestado'}">${livro.status}</td>
-        `;
-        listaLivros.appendChild(tr);
-        if (livro.status === "Disponível") disponiveis++;
+    const livrosFiltrados = livros.filter(livro => {
+        const matchesSearch = livro.titulo.toLowerCase().includes(pesquisa);
+        const matchesStatus = filtroStatus === "Todos" || livro.status === filtroStatus;
+        const matchesSerie = filtroSerie === "Todas as séries" || (livro.serie && livro.serie === filtroSerie);
+        return matchesSearch && matchesStatus && matchesSerie;
     });
 
-    totalDisponiveis.textContent = disponiveis;
+    livrosFiltrados.forEach(livro => {
+        const card = document.createElement("div");
+        card.className = "book-card";
+        card.innerHTML = `
+            <h3>${livro.titulo}</h3>
+            <p>Status: <span class="${livro.status === 'Disponível' ? 'available-status' : 'borrowed-status'}">${livro.status}</span></p>
+            ${livro.status === 'Emprestado' ? `<p>Aluno: ${livro.aluno || 'N/A'}</p>` : ''}
+            ${livro.status === 'Emprestado' ? `<p>Data: ${livro.data || 'N/A'}</p>` : ''}
+        `;
+        listaLivros.appendChild(card);
+        if (livro.status === 'Disponível') dispCount++;
+        else empCount++;
+    });
+
+    totalLivros.textContent = livros.length;
+    disponiveis.textContent = dispCount;
+    emprestados.textContent = empCount;
 }
 
-// Função para adicionar um livro
-function adicionarLivro(event) {
-    event.preventDefault();
-    const titulo = document.getElementById("titulo").value;
-    const autor = document.getElementById("autor").value;
-    const status = document.getElementById("status").value;
+// Eventos
+document.getElementById("pesquisa").addEventListener("input", atualizarLista);
+document.getElementById("filtroStatus").addEventListener("change", atualizarLista);
+document.getElementById("filtroSerie").addEventListener("change", atualizarLista);
 
-    const novoLivro = {
-        id: livros.length + 1,
-        titulo,
-        autor,
-        status
-    };
-
-    livros.push(novoLivro);
-    carregarLivros();
-    document.getElementById("formAdicionar").reset();
-}
-
-// Evento de pesquisa
-document.getElementById("pesquisa").addEventListener("input", (e) => {
-    carregarLivros(e.target.value);
-});
-
-// Evento de adicionar livro
-document.getElementById("formAdicionar").addEventListener("submit", adicionarLivro);
-
-// Carrega os livros ao iniciar
+// Carregar livros ao iniciar
 carregarLivros();
