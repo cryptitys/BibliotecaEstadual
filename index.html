@@ -1,154 +1,153 @@
 <!DOCTYPE html><html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Encerrado Temporariamente</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 300vh;
-            overflow-x: hidden;
-            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-            font-family: 'Arial', sans-serif;
-            color: white;
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: block;
-            z-index: 0;
-        }
-        #info {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 2;
-            opacity: 0;
-            animation: slideFadeIn 2s ease-out 1s forwards;
-        }
-        @keyframes slideFadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-        h1 {
-            font-size: 3em;
-            margin: 0;
-            text-shadow: 0 0 20px #ffffffaa;
-            color: #ffffff;
-        }
-        p {
-            font-size: 1.5em;
-            margin-top: 15px;
-            text-shadow: 0 0 10px #ffffffaa;
-        }
-        #extra-text {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #f0f0f0;
-            text-align: center;
-            font-size: 1.1em;
-            opacity: 0;
-            transition: opacity 0.8s ease, transform 0.8s ease;
-            padding: 25px;
-            background: rgba(10, 10, 10, 0.85);
-            border-radius: 15px;
-            width: 85%;
-            max-width: 450px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            z-index: 2;
-        }
-        #extra-text.show {
-            opacity: 1;
-            transform: translate(-50%, -20px);
-        }
-        #countdown {
-            margin-top: 20px;
-            font-size: 1.3em;
-            color: #ffffff;
-            text-shadow: 0 0 10px #ffffff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Encerrado Temporariamente</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 300vh;
+      overflow-x: hidden;
+      background: #0a0f23;
+      font-family: 'Arial', sans-serif;
+      user-select: none;
+      color: white;
+    }#info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  opacity: 0;
+  animation: slideFadeIn 1.5s ease-out 1s forwards;
+}
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+h1, p {
+  text-shadow: 0 0 15px #ffffff55;
+}
+
+#extra-text {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #e0f7fa;
+  text-align: center;
+  font-size: 1.2em;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  width: 85%;
+  max-width: 450px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+#extra-text.show {
+  opacity: 1;
+  transform: translate(-50%, -20px);
+}
+
+#countdown {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  box-shadow: 0 0 10px #00ffcc55;
+  z-index: 10;
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+  </style>
 </head>
 <body>
-    <div id="info">
-        <h1>Projeto encerrado temporariamente</h1>
-        <p>Em breve outro será lançado...</p>
-        <div id="countdown"></div>
-    </div>
-    <div id="extra-text">
-        Por motivos pessoais e pela necessidade de maior flexibilidade de tempo, este projeto foi temporariamente encerrado. Agradeço sinceramente a todos que acompanharam e apoiaram até aqui. Este não é um adeus definitivo, mas uma pausa necessária para evoluir.
-    </div><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script>
-    // Fundo animado de estrelas com Three.js
+  <div id="info">
+    <h1>Projeto encerrado temporariamente</h1>
+    <p>Em breve outro será lançado...</p>
+  </div>  <div id="extra-text">
+    Este projeto foi encerrado temporariamente por motivos pessoais, falta de tempo livre e por estar sendo desenvolvido sozinho. Agradeço a todos que acompanharam!
+  </div>  <div id="countdown"></div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>  <script>
+    // Fundo 3D e efeitos visuais
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
     const starsGeometry = new THREE.BufferGeometry();
+    const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.15, transparent: true, opacity: 0.7 });
     const starVertices = [];
     for (let i = 0; i < 1000; i++) {
-        const x = (Math.random() - 0.5) * 1000;
-        const y = (Math.random() - 0.5) * 1000;
-        const z = (Math.random() - 0.5) * 1000;
-        starVertices.push(x, y, z);
+      const x = (Math.random() - 0.5) * 1000;
+      const y = (Math.random() - 0.5) * 1000;
+      const z = (Math.random() - 0.5) * 1000;
+      starVertices.push(x, y, z);
     }
     starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-    const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.6 });
     const stars = new THREE.Points(starsGeometry, starsMaterial);
     scene.add(stars);
 
-    camera.position.z = 400;
-
+    camera.position.z = 5;
     function animate() {
-        requestAnimationFrame(animate);
-        stars.rotation.y += 0.0007;
-        renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+      stars.rotation.y += 0.0005;
+      renderer.render(scene, camera);
     }
     animate();
 
-    // Texto extra ao rolar
+    // Extra text on scroll
     const extraText = document.getElementById('extra-text');
     window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-        if (scrollPosition > 100) {
-            extraText.classList.add('show');
-        } else {
-            extraText.classList.remove('show');
-        }
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 100) {
+        extraText.classList.add('show');
+      } else {
+        extraText.classList.remove('show');
+      }
     });
 
-    // Cronômetro fixo até 2025-07-30
-    const countdownEl = document.getElementById("countdown");
-    const end = new Date(1753833600000); // 30 dias após 2025-06-30
+    // Cronômetro fixo (30 dias a partir de 2025-06-30T00:00:00Z)
+    const countdown = document.getElementById('countdown');
+    const endDate = new Date("2025-07-30T00:00:00Z").getTime();
 
     function updateCountdown() {
-        const now = new Date();
-        const distance = end - now;
+      const now = new Date().getTime();
+      const distance = endDate - now;
 
-        if (distance < 0) {
-            countdownEl.innerHTML = "O novo projeto chegou!";
-            return;
-        }
+      if (distance < 0) {
+        countdown.innerHTML = "Novo projeto disponível em breve.";
+        return;
+      }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        countdownEl.innerHTML = `Próximo projeto em: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdown.innerHTML = `Retorno em: ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-</script>
-
-</body>
+  </script></body>
 </html>
