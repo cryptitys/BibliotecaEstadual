@@ -1,11 +1,11 @@
-// Configuração do Firebase (substitua pelos seus dados)
+// Configuração do Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCuDMMDpvzvnrC40HAdGFQeJssZaO4N-6g",
-  authDomain: "biblioteca-web-630c8.firebaseapp.com",
-  projectId: "biblioteca-web-630c8",
-  storageBucket: "biblioteca-web-630c8.firebasestorage.app",
-  messagingSenderId: "67001997597",
-  appId: "1:67001997597:web:a133fda6c73839f3b5a9f4"
+    apiKey: "AIzaSyCuDMMDpvzvnrC40HAdGFQeJssZaO4N-6g",
+    authDomain: "biblioteca-web-630c8.firebaseapp.com",
+    projectId: "biblioteca-web-630c8",
+    storageBucket: "biblioteca-web-630c8.firebasestorage.app",
+    messagingSenderId: "67001997597",
+    appId: "1:67001997597:web:a133fda6c73839f3b5a9f4"
 };
 
 // Inicializar Firebase
@@ -20,9 +20,13 @@ function carregarLivros() {
     db.collection("livros").get().then((querySnapshot) => {
         livros = [];
         querySnapshot.forEach((doc) => {
+            console.log("Documento carregado:", doc.data()); // Depuração
             livros.push({ id: doc.id, ...doc.data() });
         });
+        console.log("Livros carregados:", livros); // Depuração
         atualizarLista();
+    }).catch((error) => {
+        console.error("Erro ao carregar livros:", error); // Depuração de erros
     });
 }
 
