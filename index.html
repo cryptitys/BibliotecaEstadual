@@ -1,159 +1,153 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Encerramento Temporário</title>
-  <style>
-    :root {
-      --bg-dark: #0a0f23;
-      --bg-light: #f5f5f5;
-      --fg-dark: #fff;
-      --fg-light: #333;
-    }
-    body {
-      margin: 0;
-      background: var(--bg-dark);
-      color: var(--fg-dark);
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      transition: background 0.5s, color 0.5s;
-    }
-    body.light {
-      background: var(--bg-light);
-      color: var(--fg-light);
-    }
-    #themeToggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(0,0,0,0.3);
-      border: none;
-      color: white;
-      padding: 0.5em;
-      border-radius: 0.3em;
-      cursor: pointer;
-      transition: background 0.3s;
-      z-index: 100;
-    }
-    body.light #themeToggle {
-      background: rgba(255,255,255,0.7);
-      color: #333;
-    }
-    section {
-      height: 100vh;
-      scroll-snap-align: start;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    main {
-      scroll-snap-type: y mandatory;
-      height: 300vh;
-      overflow-y: scroll;
-    }
-    h1 { font-size: 3rem; margin: 0.2em; }
-    #countdown { font-size: 2rem; margin-top: 0.5em; }
-    .message { max-width: 700px; line-height: 1.6; font-size: 1.2em; }
-    .typed { border-right: 2px solid currentColor; white-space: pre-wrap; overflow: hidden; }
-    canvas { position: fixed; top:0; left:0; z-index: 0; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Encerrado Temporariamente</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 300vh;
+            overflow-x: hidden;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: block;
+            z-index: 0;
+        }
+        #info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            animation: slideFadeIn 2s ease-out 1s forwards;
+        }
+        @keyframes slideFadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 0 0 20px #ffffffaa;
+            color: #ffffff;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 15px;
+            text-shadow: 0 0 10px #ffffffaa;
+        }
+        #extra-text {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #f0f0f0;
+            text-align: center;
+            font-size: 1.1em;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            padding: 25px;
+            background: rgba(10, 10, 10, 0.85);
+            border-radius: 15px;
+            width: 85%;
+            max-width: 450px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            z-index: 2;
+        }
+        #extra-text.show {
+            opacity: 1;
+            transform: translate(-50%, -20px);
+        }
+        #countdown {
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ffffff;
+        }
+    </style>
 </head>
 <body>
-
-<button id="themeToggle">🌙/☀️</button>
-
-<canvas id="galaxy"></canvas>
-
-<main>
-  <section id="intro">
-    <h1>Projeto encerrado temporariamente</h1>
-    <div id="countdown">Carregando...</div>
-  </section>
-
-  <section id="middle">
-    <h1>Agradecemos sua presença até aqui</h1>
-  </section>
-
-  <section id="farewell">
-    <div class="message typed" id="typedMessage"></div>
-  </section>
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+    <div id="info">
+        <h1>Projeto encerrado temporariamente</h1>
+        <p>Em breve outro será lançado...</p>
+        <div id="countdown"></div>
+    </div>
+    <div id="extra-text">
+        Por motivos pessoais e pela necessidade de maior flexibilidade de tempo, este projeto foi temporariamente encerrado. Agradeço sinceramente a todos que acompanharam e apoiaram até aqui. Este não é um adeus definitivo, mas uma pausa necessária para evoluir.
+    </div><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script>
-  // 1. Theme toggle
-  const btn = document.getElementById('themeToggle');
-  btn.addEventListener('click', () => document.body.classList.toggle('light'));
-
-  // 2. Countdown fixada em 30 dias
-  const start = new Date(); // define quando a página foi lançada, ajustável
-  const end = new Date(start.getTime() + 30 * 24 * 60 * 60 * 1000);
-  const cdEl = document.getElementById('countdown');
-  function updateCountdown() {
-    const now = new Date();
-    const diff = end - now;
-    if (diff <= 0) {
-      cdEl.textContent = "Novo projeto lançado!";
-      clearInterval(cntInterval);
-      return;
-    }
-    const d = Math.floor(diff / (1000*60*60*24));
-    const h = Math.floor(diff / (1000*60*60) % 24);
-    const m = Math.floor(diff / (1000*60) % 60);
-    const s = Math.floor(diff / 1000 % 60);
-    cdEl.textContent = `${d}d ${h}h ${m}m ${s}s até o próximo projeto`;
-  }
-  const cntInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
-
-  // 3. Three.js galáxia
-  const canvas = document.getElementById('galaxy');
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.position.z = 50;
-  const stars = new THREE.BufferGeometry();
-  const starCount = 10000;
-  const positions = new Float32Array(starCount * 3);
-  for (let i = 0; i < starCount * 3; i++) positions[i] = (Math.random() - 0.5) * 800;
-  stars.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.5, transparent: true });
-  const galaxy = new THREE.Points(stars, mat);
-  scene.add(galaxy);
-  function animate() {
-    galaxy.rotation.y += 0.0005;
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
-  }
-  animate();
-  window.addEventListener('resize', () => {
+    // Fundo animado de estrelas com Three.js
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
-  });
+    document.body.appendChild(renderer.domElement);
 
-  // 4. Typed effect
-  const txt = `Este projeto foi encerrado temporariamente por motivos pessoais e pela necessidade de maior flexibilidade de tempo.\n\nDesenvolvido com carinho por uma única pessoa — um espaço de aprendizado, ideias e paixão.\n\nDaqui 30 dias um novo capítulo surgirá, com mais experiência, mais foco e energia renovada.\n\nObrigado por estar aqui. Até breve.`;
-  const dest = document.getElementById('typedMessage');
-  let idx = 0;
-  function type() {
-    if (idx < txt.length) {
-      dest.innerHTML += txt[idx] === '\n' ? '<br>' : txt[idx];
-      idx++;
-      const delay = txt[idx-1].match(/[.!?]/) ? 400 : 25;
-      setTimeout(type, delay);
+    const starsGeometry = new THREE.BufferGeometry();
+    const starVertices = [];
+    for (let i = 0; i < 1000; i++) {
+        const x = (Math.random() - 0.5) * 1000;
+        const y = (Math.random() - 0.5) * 1000;
+        const z = (Math.random() - 0.5) * 1000;
+        starVertices.push(x, y, z);
     }
-  }
-  // inicia no scroll da 2ª tela
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight * 2 - 200 && idx === 0) type();
-  });
+    starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+    const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.6 });
+    const stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
+
+    camera.position.z = 400;
+
+    function animate() {
+        requestAnimationFrame(animate);
+        stars.rotation.y += 0.0007;
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Texto extra ao rolar
+    const extraText = document.getElementById('extra-text');
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        if (scrollPosition > 100) {
+            extraText.classList.add('show');
+        } else {
+            extraText.classList.remove('show');
+        }
+    });
+
+    // Cronômetro fixo até 2025-07-30
+    const countdownEl = document.getElementById("countdown");
+    const end = new Date(1753833600000); // 30 dias após 2025-06-30
+
+    function updateCountdown() {
+        const now = new Date();
+        const distance = end - now;
+
+        if (distance < 0) {
+            countdownEl.innerHTML = "O novo projeto chegou!";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.innerHTML = `Próximo projeto em: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 </script>
 
 </body>
