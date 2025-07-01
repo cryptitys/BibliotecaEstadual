@@ -1,19 +1,29 @@
-/* Estilos adicionais que complementam o Tailwind */
-.disponivel {
-    color: green;
-    font-weight: bold;
+/* Animações das linhas curvas */
+.wave {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: wave 15s infinite linear;
 }
-.emprestado {
-    color: red;
-    font-weight: bold;
+
+.delay-200 { animation-delay: 2s; }
+.delay-400 { animation-delay: 4s; }
+
+@keyframes wave {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+
+.disponivel { color: green; font-weight: bold; }
+.emprestado { color: red; font-weight: bold; }
 table th, table td {
     border: 1px solid #e5e7eb;
     padding: 8px;
     text-align: left;
 }
 @media (max-width: 640px) {
-    table th, table td {
-        font-size: 0.9rem;
-    }
+    .container { padding: 1em; }
+    table th, table td { font-size: 0.9rem; }
 }
