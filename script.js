@@ -1,11 +1,11 @@
 // Configuração do Firebase (substitua pelos seus dados)
 const firebaseConfig = {
-    apiKey: "SEU_API_KEY",
-    authDomain: "SEU_AUTH_DOMAIN",
-    projectId: "SEU_PROJECT_ID",
-    storageBucket: "SEU_STORAGE_BUCKET",
-    messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-    appId: "SEU_APP_ID"
+  apiKey: "AIzaSyCuDMMDpvzvnrC40HAdGFQeJssZaO4N-6g",
+  authDomain: "biblioteca-web-630c8.firebaseapp.com",
+  projectId: "biblioteca-web-630c8",
+  storageBucket: "biblioteca-web-630c8.firebasestorage.app",
+  messagingSenderId: "67001997597",
+  appId: "1:67001997597:web:a133fda6c73839f3b5a9f4"
 };
 
 // Inicializar Firebase
