@@ -1,201 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Encerrado Temporariamente</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 300vh; /* Aumenta mais para garantir scroll */
-            overflow-x: hidden;
-            background: #0a0f23;
-            font-family: 'Arial', sans-serif;
-            -webkit-user-select: none; /* Impede seleção no celular */
-            user-select: none;
-        }
-        #info {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            z-index: 2;
-            opacity: 0;
-            animation: slideFadeIn 1.5s ease-out 1s forwards;
-        }
-        @keyframes slideFadeIn {
-            from { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-        h1 {
-            font-size: 3em;
-            margin: 0;
-            text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
-            font-weight: bold;
-        }
-        p {
-            font-size: 1.5em;
-            margin-top: 15px;
-            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-        }
-        #extra-text {
-            position: absolute;
-            top: 80%; /* Ajustado para aparecer mais abaixo */
-            left: 50%;
-            transform: translateX(-50%);
-            color: #e0f7fa;
-            text-align: center;
-            font-size: 1.2em;
-            opacity: 0;
-            transition: opacity 0.8s ease, transform 0.8s ease;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            width: 85%;
-            max-width: 450px;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
-            z-index: 2;
-        }
-        #extra-text.show {
-            opacity: 1;
-            transform: translate(-50%, -20px);
-        }
-        canvas {
-            display: block;
-            z-index: 1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Temporariamente Encerrado</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at top, #0a0f23 0%, #050811 100%);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin: 0;
+      animation: fadeIn 2s ease forwards;
+      text-shadow: 0 0 15px #00ffcc;
+    }
+
+    p.sub {
+      margin-top: 1rem;
+      font-size: 1.4em;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 1.5s;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    .message {
+      opacity: 0;
+      max-width: 700px;
+      margin: 0 auto;
+      margin-top: 80vh;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 12px;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+      transform: translateY(50px);
+    }
+
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="info">
-        <h1>Projeto encerrado temporariamente</h1>
-        <p>Em breve outro será lançado...</p>
-    </div>
-    <div id="extra-text">
-        Este projeto foi encerrado temporariamente por motivos pessoais, falta de tempo livre e por estar sendo desenvolvido sozinho. Agradeço a todos que acompanharam!
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script>
-        // Configuração da cena 3D
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMap.enabled = true;
-        document.body.appendChild(renderer.domElement);
+  <canvas id="bgCanvas"></canvas>
 
-        // Luz ambiente
-        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
-        scene.add(ambientLight);
+  <div class="container">
+    <h1>Projeto encerrado temporariamente</h1>
+    <p class="sub">Agradecemos sua presença até aqui 💫</p>
+  </div>
 
-        // Luz direcional para sombras
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-        directionalLight.position.set(5, 10, 5);
-        directionalLight.castShadow = true;
-        scene.add(directionalLight);
+  <div class="message" id="farewell">
+    Este projeto foi encerrado temporariamente por motivos pessoais e pela necessidade de maior flexibilidade de tempo. <br><br>
+    Desenvolvido com dedicação e carinho por uma única pessoa, ele foi um espaço de aprendizado, ideias e paixão. <br><br>
+    Em breve, um novo capítulo será iniciado — com mais experiência, mais recursos e uma nova energia. <br><br>
+    Obrigado por fazer parte dessa jornada. Até logo.
+  </div>
 
-        // Estrelas 3D com partículas
-        const starsGeometry = new THREE.BufferGeometry();
-        const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.15, transparent: true, opacity: 0.8 });
-        const starVertices = [];
-        for (let i = 0; i < 800; i++) { // Reduzido para otimizar
-            const x = (Math.random() - 0.5) * 800;
-            const y = (Math.random() - 0.5) * 800;
-            const z = (Math.random() - 0.5) * 800;
-            starVertices.push(x, y, z);
-        }
-        starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-        const stars = new THREE.Points(starsGeometry, starsMaterial);
-        scene.add(stars);
+  <script>
+    // Fundo com estrelas animadas (canvas)
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
 
-        // Texto 3D com material mais profissional
-        const loader = new THREE.FontLoader();
-        loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', function(font) {
-            const textGeometry = new THREE.TextGeometry('Projeto encerrado temporariamente', {
-                font: font,
-                size: 3,
-                height: 0.8,
-                curveSegments: 20,
-            });
-            textGeometry.center(); // Centraliza o texto
-            const textMaterial = new THREE.MeshPhongMaterial({ color: 0x00ffcc, specular: 0x00ffcc, shininess: 30 });
-            const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-            textMesh.position.z = -50;
-            textMesh.castShadow = true;
-            textMesh.receiveShadow = true;
-            scene.add(textMesh);
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
 
-            const subTextGeometry = new THREE.TextGeometry('Em breve outro será lançado...', {
-                font: font,
-                size: 1.5,
-                height: 0.4,
-                curveSegments: 20,
-            });
-            subTextGeometry.center();
-            const subTextMaterial = new THREE.MeshPhongMaterial({ color: 0x00ffcc, specular: 0x00ffcc, shininess: 30 });
-            const subTextMesh = new THREE.Mesh(subTextGeometry, subTextMaterial);
-            subTextMesh.position.y = -5;
-            subTextMesh.position.z = -50;
-            subTextMesh.castShadow = true;
-            subTextMesh.receiveShadow = true;
-            scene.add(subTextMesh);
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < 150; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: Math.random() * 1.5 + 0.5,
+          speed: Math.random() * 0.2 + 0.05
         });
+      }
+    }
 
-        // Configuração da câmera
-        camera.position.set(0, 0, 70);
-        camera.lookAt(0, 0, 0);
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#ffffff';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+    }
 
-        // Interatividade com toque/mouse
-        let mouseX = 0, mouseY = 0;
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('touchmove', onTouchMove);
-
-        function onMouseMove(event) {
-            mouseX = (event.clientX / window.innerWidth - 0.5) * 50;
-            mouseY = (event.clientY / window.innerHeight - 0.5) * 50;
+    function animateStars() {
+      stars.forEach(star => {
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
         }
+      });
+      drawStars();
+      requestAnimationFrame(animateStars);
+    }
 
-        function onTouchMove(event) {
-            mouseX = (event.touches[0].clientX / window.innerWidth - 0.5) * 50;
-            mouseY = (event.touches[0].clientY / window.innerHeight - 0.5) * 50;
-        }
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      createStars();
+    });
 
-        // Animação e scroll
-        const extraText = document.getElementById('extra-text');
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            if (scrollPosition > 100) { // Ajustado para aparecer após rolar mais
-                extraText.classList.add('show');
-            } else {
-                extraText.classList.remove('show');
-            }
-        });
+    resizeCanvas();
+    createStars();
+    animateStars();
 
-        function animate() {
-            requestAnimationFrame(animate);
+    // Texto de despedida ao rolar
+    const farewell = document.getElementById('farewell');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        farewell.classList.add('show');
+      } else {
+        farewell.classList.remove('show');
+      }
+    });
+  </script>
 
-            // Movimento suave da câmera
-            camera.position.x += (mouseX - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY - camera.position.y) * 0.05;
-            camera.lookAt(0, 0, 0);
-
-            // Rotação suave das estrelas
-            stars.rotation.y += 0.0008;
-
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Ajuste ao redimensionar
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        });
-    </script>
 </body>
 </html>
