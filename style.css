@@ -1,88 +1,105 @@
-/* Fundo espacial com gradiente e estrelas sutis */
 body {
-    background: linear-gradient(to bottom, #0a0f2c, #1a2a6c);
-    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0a0f23, #1e2a44);
+    color: #333;
+    min-height: 100vh;
 }
 
-/* Estrelas sutis */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
+.header {
+    background-color: #00aaff;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header img {
+    width: 40px;
+    vertical-align: middle;
+}
+
+.header h1 {
+    display: inline;
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.search-bar, .filter-bar {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
     width: 100%;
-    height: 100%;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAnElEQVQY02NkYGD4z8DAwMDw/mZmZmf///8DAwMDQwMDAwP7+/v4+Pj4fHx8fD8/Pz+fn5+fj4+Pj8vLy8fH19fT8/Pz9fX1//Pz8/v7+/v5+fn6/v7+/n5+fn6+vr6/v7+/v5+fn6/v7+/n5+fn6/v7+/v5+fn6/v7+/n5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/v5+fn6/v7+/Entendido! Vamos ajustar o fundo para algo que remeta ao espaço sideral, com um visual chamativo, mas não extravagante. Podemos usar um gradiente que simule o cosmos, com tons de preto profundo, azul escuro, e toques de estrelas (pontos brancos sutis), mantendo o estilo moderno e alinhado com as animações das linhas curvas. Vou atualizar o código com essa nova paleta.
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
-### Código atualizado
-#### `index.html`
-(Quase idêntico, apenas o `body` terá a classe do fundo alterada)
-```html
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Escolar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gradient-to-br from-black via-gray-900 to-blue-950 min-h-screen text-white font-sans relative">
-    <!-- Linhas decorativas animadas -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="wave"></div>
-        <div class="wave delay-200"></div>
-        <div class="wave delay-400"></div>
-    </div>
+.filter-bar select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
 
-    <div class="container mx-auto p-4 flex flex-col items-center justify-center min-h-screen relative z-10">
-        <header class="bg-transparent text-white text-center py-4 w-full max-w-md">
-            <h1 class="text-2xl font-bold">Biblioteca Escolar</h1>
-            <nav class="mt-2">
-                <a href="#home" class="mx-2 hover:underline">Home</a>
-                <a href="#acervo" class="mx-2 hover:underline">Acervo</a>
-                <a href="#sobre" class="mx-2 hover:underline">Sobre</a>
-            </nav>
-        </header>
+.stats {
+    background: #e6f0fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 
-        <div class="mt-6 w-full max-w-md">
-            <h2 class="text-xl font-semibold mb-4">Acervo de Livros</h2>
-            <p class="mb-4">Total de livros disponíveis: <span id="totalDisponiveis" class="font-bold">0</span></p>
-            <input type="text" id="pesquisa" placeholder="Pesquisar por título ou autor..." 
-                   class="w-full p-3 mb-4 bg-transparent border-b-2 border-white focus:border-yellow-400 outline-none transition-all duration-300 rounded">
-            <table class="w-full border-collapse bg-white bg-opacity-10 shadow-md rounded-lg">
-                <thead>
-                    <tr class="bg-gray-800">
-                        <th class="p-2">Título</th>
-                        <th class="p-2">Autor</th>
-                        <th class="p-2">Status</th>
-                    </tr>
-                </thead>
-                <tbody id="listaLivros"></tbody>
-            </table>
-        </div>
+.stats span {
+    font-weight: bold;
+}
 
-        <div id="gerenciamentoSection" class="mt-6 w-full max-w-md">
-            <h3 class="text-lg font-semibold mb-2">Adicionar Livro</h3>
-            <form id="formAdicionar" class="space-y-4">
-                <input type="text" id="titulo" placeholder="Título do livro" 
-                       class="w-full p-3 bg-transparent border-b-2 border-white focus:border-yellow-400 outline-none transition-all duration-300 rounded">
-                <input type="text" id="autor" placeholder="Autor" 
-                       class="w-full p-3 bg-transparent border-b-2 border-white focus:border-yellow-400 outline-none transition-all duration-300 rounded">
-                <select id="status" class="w-full p-3 bg-transparent border-b-2 border-white focus:border-yellow-400 outline-none transition-all duration-300 rounded">
-                    <option value="Disponível">Disponível</option>
-                    <option value="Emprestado">Emprestado</option>
-                </select>
-                <button type="submit" 
-                        class="w-full bg-gradient-to-r from-green-500 to-green-300 p-3 rounded-lg hover:from-green-600 hover:to-green-400 transition-all duration-300">
-                    Adicionar
-                </button>
-            </form>
-        </div>
-    </div>
+.stats .available { color: green; }
+.stats .borrowed { color: red; }
 
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+.book-card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.book-card h3 { 
+    margin: 0 0 5px 0; 
+    font-size: 1.2em; 
+}
+
+.book-card p { 
+    margin: 2px 0; 
+    font-size: 0.9em; 
+}
+
+.book-card .status { 
+    font-weight: bold; 
+}
+
+.available-status { 
+    color: green; 
+}
+
+.borrowed-status { 
+    color: red; 
+                   }
