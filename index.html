@@ -3,43 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Escolar</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Projeto Encerrado</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://via.placeholder.com/40x40.png?text=Books" alt="Logo">
-        <h1>Biblioteca - Escola Adolpho Thomaz de Aquino</h1>
-    </div>
     <div class="container">
-        <div class="search-bar">
-            <input type="text" id="pesquisa" placeholder="Buscar livro por nome...">
-        </div>
-        <div class="filter-bar">
-            <select id="filtroStatus">
-                <option value="Todos">Todos</option>
-                <option value="Disponível">Disponível</option>
-                <option value="Emprestado">Emprestado</option>
-            </select>
-        </div>
-        <div class="filter-bar">
-            <select id="filtroSerie">
-                <option value="Todas as séries">Todas as séries</option>
-                <option value="Série 1">Série 1</option>
-                <option value="Série 2">Série 2</option>
-                <option value="Série 3">Série 3</option>
-            </select>
-        </div>
-        <div class="stats">
-            <span>Total: <span id="totalLivros">0</span> livros</span>
-            <span class="available">✔ <span id="disponiveis">0</span> disponíveis</span>
-            <span class="borrowed">✘ <span id="emprestados">0</span> emprestados</span>
-        </div>
-        <div id="listaLivros"></div>
+        <h1>Projeto Encerrado</h1>
+        <p>Em breve outro será lançado...</p>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
-    <script src="script.js"></script>
+    <!-- Estrelas animadas para efeito de fundo -->
+    <script>
+        for (let i = 0; i < 50; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDuration = Math.random() * 2 + 1 + 's';
+            document.body.appendChild(star);
+        }
+    </script>
 </body>
 </html>
