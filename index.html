@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projeto Temporariamente Encerrado</title>
   <style>
     body {
       margin: 0;
       background: radial-gradient(ellipse at top, #0a0f23 0%, #050811 100%);
-      color: white;
+      color: #ffffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
       user-select: none;
@@ -37,7 +37,7 @@
       font-size: 2.8em;
       margin: 0;
       animation: fadeIn 2s ease forwards;
-      text-shadow: 0 0 15px #00ffcc;
+      text-shadow: 0 0 8px rgba(255,255,255,0.2);
     }
 
     p.sub {
@@ -46,7 +46,7 @@
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 1.5s;
-      text-shadow: 0 0 10px #00ffcc;
+      text-shadow: 0 0 6px rgba(255,255,255,0.1);
     }
 
     .message {
@@ -55,18 +55,26 @@
       margin: 0 auto;
       margin-top: 80vh;
       padding: 1.5rem;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.65);
       border-radius: 12px;
       font-size: 1.2em;
       line-height: 1.6em;
-      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
       transition: opacity 1.2s ease, transform 1.2s ease;
       transform: translateY(50px);
+      white-space: pre-line;
     }
 
     .message.show {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .typed {
+      border-right: 2px solid rgba(255, 255, 255, 0.5);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.7s step-end infinite;
     }
 
     @keyframes fadeIn {
@@ -79,6 +87,11 @@
         transform: translateY(0);
       }
     }
+
+    @keyframes blink {
+      0%, 100% { border-color: rgba(255, 255, 255, 0.5); }
+      50% { border-color: transparent; }
+    }
   </style>
 </head>
 <body>
@@ -90,15 +103,15 @@
     <p class="sub">Agradecemos sua presença até aqui 💫</p>
   </div>
 
-  <div class="message" id="farewell">
-    Este projeto foi encerrado temporariamente por motivos pessoais e pela necessidade de maior flexibilidade de tempo. <br><br>
-    Desenvolvido com dedicação e carinho por uma única pessoa, ele foi um espaço de aprendizado, ideias e paixão. <br><br>
-    Em breve, um novo capítulo será iniciado — com mais experiência, mais recursos e uma nova energia. <br><br>
-    Obrigado por fazer parte dessa jornada. Até logo.
-  </div>
+  <div class="message" id="farewell"></div>
+
+  <!-- Som ambiente -->
+  <audio id="ambient-sound" autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_9fadc70863.mp3" type="audio/mp3">
+  </audio>
 
   <script>
-    // Fundo com estrelas animadas (canvas)
+    // Estrelas no fundo
     const canvas = document.getElementById('bgCanvas');
     const ctx = canvas.getContext('2d');
     let stars = [];
@@ -142,25 +155,42 @@
       requestAnimationFrame(animateStars);
     }
 
+    resizeCanvas();
+    createStars();
+    animateStars();
     window.addEventListener('resize', () => {
       resizeCanvas();
       createStars();
     });
 
-    resizeCanvas();
-    createStars();
-    animateStars();
-
-    // Texto de despedida ao rolar
+    // Efeito de digitação
     const farewell = document.getElementById('farewell');
+    const farewellText = `Este projeto foi encerrado temporariamente por motivos pessoais e pela necessidade de maior flexibilidade de tempo.\n\nDesenvolvido com dedicação e carinho por uma única pessoa, ele foi um espaço de aprendizado, ideias e paixão.\n\nEm breve, um novo capítulo será iniciado — com mais experiência, mais recursos e uma nova energia.\n\nObrigado por fazer parte dessa jornada. Até logo.`;
+
+    let i = 0;
+    let typing = false;
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 100 && !typing) {
         farewell.classList.add('show');
-      } else {
-        farewell.classList.remove('show');
+        typing = true;
+        typeText();
       }
     });
-  </script>
 
+    function typeText() {
+      if (i < farewellText.length) {
+        farewell.innerHTML += farewellText.charAt(i) === '\n' ? '<br>' : farewellText.charAt(i);
+        i++;
+        setTimeout(typeText, 25); // Velocidade da digitação
+      } else {
+        farewell.classList.remove('typed');
+      }
+    }
+
+    // Controle de volume para som ambiente
+    const sound = document.getElementById("ambient-sound");
+    sound.volume = 0.1;
+  </script>
 </body>
 </html>
